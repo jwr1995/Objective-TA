@@ -1,1 +1,1 @@
-# Objective-TA (Under development)
+# Objective-TA (under development)
