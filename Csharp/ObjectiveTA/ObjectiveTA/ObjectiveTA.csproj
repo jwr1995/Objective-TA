@@ -38,6 +38,7 @@
     <Compile Include="Model\Input\CandleStick.cs" />
     <Compile Include="Model\Input\CandleStickCollection.cs" />
     <Compile Include="Model\Output\VIModel.cs" />
+    <Compile Include="Model\Output\RSIModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

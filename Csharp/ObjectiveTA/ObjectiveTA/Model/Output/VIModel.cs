@@ -65,9 +65,9 @@ namespace ObjectiveTA.Model.Output
         }
 
 
-        public Signal GetSignal(int period = 2)
+        public Signal GetTradeSignal(int period = 2)
         {
-            if (CurrentTrend == TrendAtIndex(VIUp.Length-period) {
+            if (CurrentTrend == TrendAtIndex(VIUp.Length-period)) {
                 return Signal.DoNothing;
             } else {
                 if (CurrentTrend == Trend.Up) {
