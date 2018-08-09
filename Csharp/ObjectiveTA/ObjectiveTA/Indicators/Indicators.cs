@@ -10,6 +10,23 @@ namespace ObjectiveTA.Indicators
     /// </summary>
     public static partial class Indicators
     {
+        public static RSIModel RSIIndicator(CandleStickCollection candleSticks, int period = 14)
+        {
+            int count = candleSticks.Count;
+
+            double[] rsi = new double[count];
+
+            for (int j = 0; j < count - period - 2; j++)
+            {
+                for (int i = 1 + j; i < 1 + period; i++)
+                {
+                    // TO DO
+                }
+            }
+
+            return new RSIModel(rsi);
+        }
+
         /// <summary>
         /// Vortex Indicator Model
         /// </summary>
