@@ -40,9 +40,5 @@
     <Compile Include="Objects\Output\VIModel.cs" />
     <Compile Include="Objects\Output\RSIModel.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Models\MA\" />
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
