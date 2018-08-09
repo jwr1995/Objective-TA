@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using ObjectiveTA.Model.Input;
-using ObjectiveTA.Model.Output;
+using ObjectiveTA.Objects.Input;
+using ObjectiveTA.Objects.Output;
 
 namespace ObjectiveTA.Indicators
 {

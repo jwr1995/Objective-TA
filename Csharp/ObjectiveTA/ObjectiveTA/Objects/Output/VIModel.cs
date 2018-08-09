@@ -2,7 +2,7 @@
 using System.Linq;
 using ObjectiveTA.Trading;
 
-namespace ObjectiveTA.Model.Output
+namespace ObjectiveTA.Objects.Output
 {
     /// <summary>
     /// Output model for a Vortex Indicator

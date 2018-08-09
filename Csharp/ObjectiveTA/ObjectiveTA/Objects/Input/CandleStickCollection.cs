@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace ObjectiveTA.Model.Input
+namespace ObjectiveTA.Objects.Input
 {
     public class CandleStickCollection : Collection<CandleStick>
     {

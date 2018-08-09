@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ObjectiveTA.Model.Input
+namespace ObjectiveTA.Objects.Input
 {
     public class CandleStick
     {

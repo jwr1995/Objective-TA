@@ -1,7 +1,7 @@
 ﻿using System;
 using ObjectiveTA.Trading;
 
-namespace ObjectiveTA.Model.Output
+namespace ObjectiveTA.Objects.Output
 {
     public class RSIModel
     {

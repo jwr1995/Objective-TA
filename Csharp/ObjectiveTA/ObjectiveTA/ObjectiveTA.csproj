@@ -41,7 +41,7 @@
     <Compile Include="Objects\Output\RSIModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="New Folder\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
