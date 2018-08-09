@@ -35,10 +35,13 @@
     <Compile Include="Indicators\MathUtils.cs" />
     <Compile Include="Trading\Signal.cs" />
     <Compile Include="Trading\Trend.cs" />
-    <Compile Include="Model\Input\CandleStick.cs" />
-    <Compile Include="Model\Input\CandleStickCollection.cs" />
-    <Compile Include="Model\Output\VIModel.cs" />
-    <Compile Include="Model\Output\RSIModel.cs" />
+    <Compile Include="Objects\Input\CandleStick.cs" />
+    <Compile Include="Objects\Input\CandleStickCollection.cs" />
+    <Compile Include="Objects\Output\VIModel.cs" />
+    <Compile Include="Objects\Output\RSIModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="New Folder\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
