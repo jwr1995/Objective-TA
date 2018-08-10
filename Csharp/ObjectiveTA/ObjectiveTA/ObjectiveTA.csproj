@@ -39,6 +39,8 @@
     <Compile Include="Objects\Input\CandleStickCollection.cs" />
     <Compile Include="Objects\Output\VIModel.cs" />
     <Compile Include="Objects\Output\RSIModel.cs" />
+    <Compile Include="Indicators\MovingAverage.cs" />
+    <Compile Include="Objects\Output\MAModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
