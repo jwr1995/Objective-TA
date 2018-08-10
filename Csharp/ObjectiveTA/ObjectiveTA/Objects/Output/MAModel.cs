@@ -4,6 +4,9 @@ using ObjectiveTA.Trading;
 
 namespace ObjectiveTA.Objects.Output
 {
+    /// <summary>
+    /// Moving Average Model
+    /// </summary>
     public class MAModel
     {
         private double[] movingAverage;
