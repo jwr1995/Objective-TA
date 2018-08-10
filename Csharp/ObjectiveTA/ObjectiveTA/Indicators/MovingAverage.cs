@@ -10,9 +10,11 @@ namespace ObjectiveTA.Indicators
         /// Simple Moving Average
         /// </summary>
         /// <returns>The sma.</returns>
-        /// <param name="candleSticks">Candle sticks.</param>
+        /// <param name="candleSticks">Candle stick data</param>
         /// <param name="period">Time period (size of candlestick time inerval * period)</param>
-        public static MAModel SMA(CandleStickCollection candleSticks,int period = 14)
+        /// <param name="priceSource">Price Source (enum: open, high, low, close)</param>
+        public static MAModel SMA(CandleStickCollection candleSticks, int period = 14, 
+                                  PriceSource priceSource = PriceSource.Close)
         {
             int count = candleSticks.Count;
             double[] sma = new double[count];
@@ -23,7 +25,7 @@ namespace ObjectiveTA.Indicators
 
                 for (int i = j; i < j + period - 1; i++)
                 {
-                    sum = sum + candleSticks[i].Close;
+                    sum = sum + priceSource.GetValueFromCandleStick(candleSticks[i]);
                 }
 
                 sma[j + period - 1] = sum/period;
@@ -31,5 +33,16 @@ namespace ObjectiveTA.Indicators
             
             return new MAModel(sma, MAType.SMA);
         }
+
+        public static MAModel EMA(CandleStickCollection candleSticks, int period = 14)
+        {
+            int count = candleSticks.Count;
+            double[] ema = new double[count];
+
+            return new MAModel(ema, MAType.EMA);
+        }
     }
+
+
+
 }

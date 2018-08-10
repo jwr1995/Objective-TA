@@ -65,5 +65,7 @@ namespace ObjectiveTA.Objects.Input
         /// </summary>
         /// <value>The volume.</value>
         public double? Volume { get => volume; set => volume = value; }
+
     }
+
 }
