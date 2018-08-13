@@ -34,10 +34,24 @@ namespace ObjectiveTA.Indicators
             return new MAModel(sma, MAType.SMA);
         }
 
-        public static MAModel EMA(CandleStickCollection candleSticks, int period = 14)
+        public static MAModel EMA(CandleStickCollection candleSticks, int period = 14,
+                                  PriceSource priceSource = PriceSource.Close)
         {
             int count = candleSticks.Count;
             double[] ema = new double[count];
+
+            double[] buffer = new double[period];
+
+            double w = 1 / period;
+
+            // Set intial value to first price value
+            ema[0] = priceSource.GetValueFromCandleStick(candleSticks[0]);
+
+            for (int j = 1; j < count; j++)
+            {
+                ema[j] = w * priceSource.GetValueFromCandleStick(candleSticks[0])
+                                        + (1.0 - w)*ema[j-1];
+            }
 
             return new MAModel(ema, MAType.EMA);
         }

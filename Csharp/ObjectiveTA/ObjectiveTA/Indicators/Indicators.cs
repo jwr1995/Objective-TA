@@ -10,7 +10,7 @@ namespace ObjectiveTA.Indicators
     /// </summary>
     public static partial class Indicators
     {
-        public static RSIModel RSIIndicator(CandleStickCollection candleSticks, int period = 14)
+        public static RSIModel RelativeStrengthIndex(CandleStickCollection candleSticks, int period = 14)
         {
             int count = candleSticks.Count;
 
