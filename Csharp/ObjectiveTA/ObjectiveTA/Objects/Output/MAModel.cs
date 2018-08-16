@@ -36,7 +36,7 @@ namespace ObjectiveTA.Objects.Output
     /// MA Types:
     /// Simple Moving Average (SMA), Exponential Moving Average (EMA),
     /// Cumulative Moving Average (CMA), Weighted Moving Average (WMA),
-    /// Running Moving Average/Smoothed Moving Average/Modified Moving Average (RMA)
+    /// Smoothed Moving Average/Running Moving Average (SMMA)
     /// </summary>
-    public enum MAType { SMA, EMA, CMA, WMA, RMA }
+    public enum MAType { SMA, EMA, CMA, WMA, SMMA }
 }
