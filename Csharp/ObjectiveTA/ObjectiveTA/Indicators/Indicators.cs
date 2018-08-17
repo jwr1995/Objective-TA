@@ -10,18 +10,46 @@ namespace ObjectiveTA.Indicators
     /// </summary>
     public static partial class Indicators
     {
-        public static RSIModel RelativeStrengthIndex(CandleStickCollection candleSticks, int period = 14)
+        /// <summary>
+        /// Relatives the index of the strength.
+        /// </summary>
+        /// <returns>The strength index.</returns>
+        /// <param name="candleSticks">Candle sticks.</param>
+        /// <param name="period">Period.</param>
+        public static RSIModel RelativeStrengthIndex(CandleStickCollection candleSticks, int period = 14,
+                                                     PriceSource priceSource = PriceSource.Close)
         {
             int count = candleSticks.Count;
-
+            double[] priceArray = priceSource.GetArrayFromCandleStickCollection(candleSticks);
             double[] rsi = new double[count];
 
-            for (int j = 0; j < count - period - 2; j++)
+            double[] up = new double[count];
+            double[] down = new double[count];
+            double[] rs = new double[count];
+          
+            for (int i = 1; i < count; i++)
             {
-                for (int i = 1 + j; i < 1 + period; i++)
+                if(priceArray[i]>priceArray[i-1])
                 {
-                    // TO DO
+                    up[i] = priceArray[i] - priceArray[i - 1];
                 }
+                else
+                {
+                    down[i] = priceArray[i - 1] - priceArray[i];
+                }
+            }
+
+            for (int i = period; i < count; i++)
+            {
+                rs[i] = MovingAverage.SMMA(up, period, i-period, period).MovingAverage[i] 
+                                     / MovingAverage.SMMA(down, period,i-period,period).MovingAverage[i];
+                rsi[i] = 100 - 1 / (1 + rs[i]);
+            }
+
+
+            for (int j = period; j < count; j++)
+            {
+                
             }
 
             return new RSIModel(rsi);

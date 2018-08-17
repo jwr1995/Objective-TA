@@ -156,6 +156,50 @@ namespace ObjectiveTA.Indicators
 
             return new MAModel(smma, MAType.SMMA);
         }
+
+        /// <summary>
+        /// Smoothed Moving Average/Running Moving Average
+        /// </summary>
+        /// <returns>The smma.</returns>
+        /// <param name="values">Input values</param>
+        /// <param name="period">Period.</param>
+        public static MAModel SMMA(double[] values, int period = 14, int startIndex = 0, int length = 0)
+        {
+
+            if (length == 0)
+            {
+                length = values.Length;
+            }
+
+            if (length < period)
+            {
+                Exception exception = new Exception("Input must equal too or larger than the period");
+                throw (exception);
+            }
+
+            double[] smma = new double[length];
+
+            double sum = values[startIndex];
+
+            //Iterate for first sum over period n
+            for (int i = startIndex; i < startIndex + period - 1; i++)
+            {
+                sum = sum + values[i];
+            }
+
+            // First n values are zero
+            smma[startIndex + period - 1] = sum / period;
+
+            for (int i = startIndex + period; i < startIndex + length; i++)
+            {
+                // No need to iterate through every sum
+                sum = sum - values[i - period] + values[i];
+
+                smma[i] = (sum - smma[0] + values[i]) / (double)period;
+            }
+
+            return new MAModel(smma, MAType.SMMA);
+        }
     }
 
 
