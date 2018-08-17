@@ -57,7 +57,7 @@ namespace ObjectiveTA.Indicators
             // Set intial value to first price value
             ema[0] = priceSource.GetValueFromCandleStick(candleSticks[0]);
 
-            for (int i = 1; i < count-1; i++)
+            for (int i = 1; i < count; i++)
             {
                 ema[i] = w * priceSource.GetValueFromCandleStick(candleSticks[i])
                                         + (1.0 - w)*ema[i-1];
@@ -66,18 +66,68 @@ namespace ObjectiveTA.Indicators
             return new MAModel(ema, MAType.EMA);
         }
 
-        public static MAModel CMA()
+
+        /// <summary>
+        /// Cumulative Moving Average
+        /// </summary>
+        /// <returns>The cma.</returns>
+        /// <param name="candleSticks">Candle sticks.</param>
+        /// <param name="priceSource">Price source.</param>
+        public static MAModel CMA(CandleStickCollection candleSticks,
+                                  PriceSource priceSource = PriceSource.Close)
         {
-            double[] cma = null;
+            int count = candleSticks.Count;
+            double[] cma = new double[count];
+            double[] priceArray = priceSource.GetArrayFromCandleStickCollection(candleSticks);
+            cma[0] = priceArray[0];
+
+            for (int i = 1; i < count; i++)
+            {
+                cma[i] = cma[i - 1] + (priceArray[i] - cma[i - 1]) / (double)i;
+            }
+
             return new MAModel(cma, MAType.CMA);
         }
 
-        public static MAModel WMA()
+        /// <summary>
+        /// Weighted Moving Average
+        /// </summary>
+        /// <returns>The wma.</returns>
+        /// <param name="candleSticks">Candle sticks.</param>
+        /// <param name="weight">Weight.</param>
+        /// <param name="priceSource">Price source.</param>
+        public static MAModel WMA(CandleStickCollection candleSticks, int weight =14,
+                                  PriceSource priceSource = PriceSource.Close)
         {
-            double[] wma = null;
+            int count = candleSticks.Count;
+            double[] priceArray = priceSource.GetArrayFromCandleStickCollection(candleSticks);
+            double[] wma = new double[count];
+            double[] weights = new double[weight];
+            double sum = weight * (weight + 1) / 2;
+
+            for (int i = 0; i < weight; i++)
+            {
+                weights[i] = i / sum;
+            }
+
+            for (int i = weight-1; i < count; i++)
+            {
+                for (int j = 0; j < weight; j++)
+                {
+                    wma[i] = wma[i] + priceArray[j + i] * weight;
+                }
+            }
+
             return new MAModel(wma, MAType.WMA);
         }
 
+        /// <summary>
+        /// Smoothed Moving Average/Running Moving Average
+        /// </summary>
+        /// <returns>The smma.</returns>
+        /// <param name="candleSticks">Candle sticks.</param>
+        /// <param name="period">Period.</param>
+        /// <param name="priceSource">Price source.</param>
         public static MAModel SMMA(CandleStickCollection candleSticks, int period = 14,
                                    PriceSource priceSource = PriceSource.Close)
         {
@@ -96,12 +146,12 @@ namespace ObjectiveTA.Indicators
             // First n values are zero
             smma[period-1] = sum / period;
 
-            for (int i = period; i < count - 1; i++)
+            for (int i = period; i < count; i++)
             {
                 // No need to iterate through every sum
                 sum = sum - priceArray[i - period] + priceArray[i];
 
-                smma[i] = (sum - smma[0] + priceArray[i]) / period;
+                smma[i] = (sum - smma[0] + priceArray[i]) / (double)period;
             }
 
             return new MAModel(smma, MAType.SMMA);
