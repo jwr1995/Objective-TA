@@ -2,12 +2,12 @@
 using System.Linq;
 using ObjectiveTA.Trading;
 
-namespace ObjectiveTA.Model.Output
+namespace ObjectiveTA.Objects.Output
 {
     /// <summary>
     /// Output model for a Vortex Indicator
     /// </summary>
-    public class VIModel
+    public class VortexIndicator
     {
         private double[] viUp;
         private double[] viDown;
@@ -17,7 +17,7 @@ namespace ObjectiveTA.Model.Output
         /// </summary>
         /// <param name="viUp">Vi up.</param>
         /// <param name="viDown">Vi down.</param>
-        public VIModel(double[] viUp, double[] viDown)
+        public VortexIndicator(double[] viUp, double[] viDown)
         {
             this.VIUp = viUp;
             this.VIDown = viDown;
@@ -51,6 +51,11 @@ namespace ObjectiveTA.Model.Output
             }
         }
 
+        /// <summary>
+        /// Get the Trend at a particular index.
+        /// </summary>
+        /// <returns>The at index.</returns>
+        /// <param name="idx">Index.</param>
         public Trend TrendAtIndex(int idx)
         {
             if (VIUp[idx] > VIDown[idx]) {
@@ -64,21 +69,23 @@ namespace ObjectiveTA.Model.Output
             }
         }
 
-
-        public Signal GetSignal(int period = 2)
+        /// <summary>
+        /// Gets the change in trend if it has changed
+        /// </summary>
+        /// <returns>The trend change.</returns>
+        /// <param name="period">Period.</param>
+        public TrendChange GetTrendChange(int period = 1)
         {
-            if (CurrentTrend == TrendAtIndex(VIUp.Length-period) {
-                return Signal.DoNothing;
+            if (CurrentTrend == TrendAtIndex(VIUp.Length - 1 - period)) {
+                return TrendChange.NotChanged;
             } else {
                 if (CurrentTrend == Trend.Up) {
-                    return Signal.Buy;
+                    return TrendChange.Upwards;
                 } else {
-                    return Signal.Sell;
+                    return TrendChange.DownWards;
                 }
             }
 
         }
-
     }
-
 }

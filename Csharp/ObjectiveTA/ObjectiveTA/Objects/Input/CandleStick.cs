@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ObjectiveTA.Model.Input
+namespace ObjectiveTA.Objects.Input
 {
     public class CandleStick
     {
@@ -65,5 +65,7 @@ namespace ObjectiveTA.Model.Input
         /// </summary>
         /// <value>The volume.</value>
         public double? Volume { get => volume; set => volume = value; }
+
     }
+
 }

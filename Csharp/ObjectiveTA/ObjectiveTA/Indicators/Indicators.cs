@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using ObjectiveTA.Model.Input;
-using ObjectiveTA.Model.Output;
+using ObjectiveTA.Objects.Input;
+using ObjectiveTA.Objects.Output;
 
 namespace ObjectiveTA.Indicators
 {
@@ -11,12 +11,51 @@ namespace ObjectiveTA.Indicators
     public static partial class Indicators
     {
         /// <summary>
+        /// Relatives the index of the strength.
+        /// </summary>
+        /// <returns>The strength index.</returns>
+        /// <param name="candleSticks">Candle sticks.</param>
+        /// <param name="period">Period.</param>
+        public static RelativeStrengthIndex RelativeStrengthIndex(CandleStickCollection candleSticks, int period = 14,
+                                                     PriceSource priceSource = PriceSource.Close)
+        {
+            int count = candleSticks.Count;
+            double[] priceArray = priceSource.GetArrayFromCandleStickCollection(candleSticks);
+            double[] rsi = new double[count];
+
+            double[] up = new double[count];
+            double[] down = new double[count];
+            double[] rs = new double[count];
+          
+            for (int i = 1; i < count; i++)
+            {
+                if(priceArray[i]>priceArray[i-1])
+                {
+                    up[i] = priceArray[i] - priceArray[i - 1];
+                }
+                else
+                {
+                    down[i] = priceArray[i - 1] - priceArray[i];
+                }
+            }
+
+            for (int i = period; i < count; i++)
+            {
+                rs[i] = MovingAverage.SMMA(up, period, i-period, period).MovingAverage[i] 
+                                     / MovingAverage.SMMA(down, period,i-period,period).MovingAverage[i];
+                rsi[i] = 100 - 1 / (1 + rs[i]);
+            }
+
+            return new RelativeStrengthIndex(rsi);
+        }
+
+        /// <summary>
         /// Vortex Indicator Model
         /// </summary>
         /// <returns>The indicator.</returns>
         /// <param name="candleSticks">Candle stick data array.</param>
         /// <param name="period">Period.</param>
-        public static VIModel VortexIndicator(CandleStickCollection candleSticks, int period = 14)
+        public static VortexIndicator VortexIndicator(CandleStickCollection candleSticks, int period = 14)
         {
             int count = candleSticks.Count;
 
@@ -54,12 +93,21 @@ namespace ObjectiveTA.Indicators
                     viDown[j] = sumVMDown[j] / sumTrueRange[j];
                 }
 
-                return new VIModel(viUP, viDown);
+                return new VortexIndicator(viUP, viDown);
             }
             catch (IndexOutOfRangeException e)
             {
                 throw e;
             }
+        }
+
+        public static MovingAverageConvergenceDivergence MACD(CandleStickCollection candleSticks, int fast = 12, int slow = 26, int length = 9,
+                                     PriceSource priceSource = PriceSource.Close)
+        {
+            MovingAverage fastMA = MovingAverages.EMA(candleSticks, fast, priceSource);
+            MovingAverage slowMA = MovingAverages.EMA(candleSticks, slow, priceSource);
+            double[] macd = SubtractArray(fastMA.MA, slowMA.MA);
+            return new MovingAverageConvergenceDivergence(macd, length);
         }
     }
 }
