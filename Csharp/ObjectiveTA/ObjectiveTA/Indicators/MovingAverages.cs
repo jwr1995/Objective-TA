@@ -4,7 +4,7 @@ using ObjectiveTA.Objects.Output;
 
 namespace ObjectiveTA.Indicators
 {
-    public static class MovingAverage
+    public static class MovingAverages
     {
         /// <summary>
         /// Simple Moving Average
@@ -13,7 +13,7 @@ namespace ObjectiveTA.Indicators
         /// <param name="candleSticks">Candle stick data</param>
         /// <param name="period">Time period (size of candlestick time inerval * period)</param>
         /// <param name="priceSource">Price Source (enum: open, high, low, close)</param>
-        public static MAModel SMA(CandleStickCollection candleSticks, int period = 14, 
+        public static MovingAverage SMA(CandleStickCollection candleSticks, int period = 14, 
                                   PriceSource priceSource = PriceSource.Close)
         {
             int count = candleSticks.Count;
@@ -36,7 +36,7 @@ namespace ObjectiveTA.Indicators
                 sma[j] = sum/period;
             }
             
-            return new MAModel(sma, MAType.SMA);
+            return new MovingAverage(sma, MAType.SMA);
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace ObjectiveTA.Indicators
         /// <param name="candleSticks">Candle sticks.</param>
         /// <param name="period">Period.</param>
         /// <param name="priceSource">Price source.</param>
-        public static MAModel EMA(CandleStickCollection candleSticks, int period = 14,
+        public static MovingAverage EMA(CandleStickCollection candleSticks, int period = 14,
                                   PriceSource priceSource = PriceSource.Close)
         {
             int count = candleSticks.Count;
@@ -63,7 +63,25 @@ namespace ObjectiveTA.Indicators
                                         + (1.0 - w)*ema[i-1];
             }
 
-            return new MAModel(ema, MAType.EMA);
+            return new MovingAverage(ema, MAType.EMA);
+        }
+
+        public static MovingAverage EMA(double[] prices, int period = 14)
+        {
+            int count = prices.Length;
+            double[] ema = new double[count];
+
+            double w = 1 / period;
+
+            // Set intial value to first price value
+            ema[0] = prices[0];
+
+            for (int i = 1; i < count; i++)
+            {
+                ema[i] = w * prices[i] + (1.0 - w) * ema[i - 1];
+            }
+
+            return new MovingAverage(ema, MAType.EMA);
         }
 
 
@@ -73,7 +91,7 @@ namespace ObjectiveTA.Indicators
         /// <returns>The cma.</returns>
         /// <param name="candleSticks">Candle sticks.</param>
         /// <param name="priceSource">Price source.</param>
-        public static MAModel CMA(CandleStickCollection candleSticks,
+        public static MovingAverage CMA(CandleStickCollection candleSticks,
                                   PriceSource priceSource = PriceSource.Close)
         {
             int count = candleSticks.Count;
@@ -86,7 +104,7 @@ namespace ObjectiveTA.Indicators
                 cma[i] = cma[i - 1] + (priceArray[i] - cma[i - 1]) / (double)i;
             }
 
-            return new MAModel(cma, MAType.CMA);
+            return new MovingAverage(cma, MAType.CMA);
         }
 
         /// <summary>
@@ -96,7 +114,7 @@ namespace ObjectiveTA.Indicators
         /// <param name="candleSticks">Candle sticks.</param>
         /// <param name="weight">Weight.</param>
         /// <param name="priceSource">Price source.</param>
-        public static MAModel WMA(CandleStickCollection candleSticks, int weight =14,
+        public static MovingAverage WMA(CandleStickCollection candleSticks, int weight =14,
                                   PriceSource priceSource = PriceSource.Close)
         {
             int count = candleSticks.Count;
@@ -118,7 +136,7 @@ namespace ObjectiveTA.Indicators
                 }
             }
 
-            return new MAModel(wma, MAType.WMA);
+            return new MovingAverage(wma, MAType.WMA);
         }
 
         /// <summary>
@@ -128,7 +146,7 @@ namespace ObjectiveTA.Indicators
         /// <param name="candleSticks">Candle sticks.</param>
         /// <param name="period">Period.</param>
         /// <param name="priceSource">Price source.</param>
-        public static MAModel SMMA(CandleStickCollection candleSticks, int period = 14,
+        public static MovingAverage SMMA(CandleStickCollection candleSticks, int period = 14,
                                    PriceSource priceSource = PriceSource.Close)
         {
             int count = candleSticks.Count;
@@ -154,7 +172,7 @@ namespace ObjectiveTA.Indicators
                 smma[i] = (sum - smma[0] + priceArray[i]) / (double)period;
             }
 
-            return new MAModel(smma, MAType.SMMA);
+            return new MovingAverage(smma, MAType.SMMA);
         }
 
         /// <summary>
@@ -163,7 +181,7 @@ namespace ObjectiveTA.Indicators
         /// <returns>The smma.</returns>
         /// <param name="values">Input values</param>
         /// <param name="period">Period.</param>
-        public static MAModel SMMA(double[] values, int period = 14, int startIndex = 0, int length = 0)
+        public static MovingAverage SMMA(double[] values, int period = 14, int startIndex = 0, int length = 0)
         {
 
             if (length == 0)
@@ -198,7 +216,7 @@ namespace ObjectiveTA.Indicators
                 smma[i] = (sum - smma[0] + values[i]) / (double)period;
             }
 
-            return new MAModel(smma, MAType.SMMA);
+            return new MovingAverage(smma, MAType.SMMA);
         }
     }
 

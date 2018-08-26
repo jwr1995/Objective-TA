@@ -16,7 +16,7 @@ namespace ObjectiveTA.Indicators
         /// <returns>The strength index.</returns>
         /// <param name="candleSticks">Candle sticks.</param>
         /// <param name="period">Period.</param>
-        public static RSIModel RelativeStrengthIndex(CandleStickCollection candleSticks, int period = 14,
+        public static RelativeStrengthIndex RelativeStrengthIndex(CandleStickCollection candleSticks, int period = 14,
                                                      PriceSource priceSource = PriceSource.Close)
         {
             int count = candleSticks.Count;
@@ -46,13 +46,7 @@ namespace ObjectiveTA.Indicators
                 rsi[i] = 100 - 1 / (1 + rs[i]);
             }
 
-
-            for (int j = period; j < count; j++)
-            {
-                
-            }
-
-            return new RSIModel(rsi);
+            return new RelativeStrengthIndex(rsi);
         }
 
         /// <summary>
@@ -61,7 +55,7 @@ namespace ObjectiveTA.Indicators
         /// <returns>The indicator.</returns>
         /// <param name="candleSticks">Candle stick data array.</param>
         /// <param name="period">Period.</param>
-        public static VIModel VortexIndicator(CandleStickCollection candleSticks, int period = 14)
+        public static VortexIndicator VortexIndicator(CandleStickCollection candleSticks, int period = 14)
         {
             int count = candleSticks.Count;
 
@@ -99,12 +93,21 @@ namespace ObjectiveTA.Indicators
                     viDown[j] = sumVMDown[j] / sumTrueRange[j];
                 }
 
-                return new VIModel(viUP, viDown);
+                return new VortexIndicator(viUP, viDown);
             }
             catch (IndexOutOfRangeException e)
             {
                 throw e;
             }
+        }
+
+        public static MovingAverageConvergenceDivergence MACD(CandleStickCollection candleSticks, int fast = 12, int slow = 26, int length = 9,
+                                     PriceSource priceSource = PriceSource.Close)
+        {
+            MovingAverage fastMA = MovingAverages.EMA(candleSticks, fast, priceSource);
+            MovingAverage slowMA = MovingAverages.EMA(candleSticks, slow, priceSource);
+            double[] macd = SubtractArray(fastMA.MA, slowMA.MA);
+            return new MovingAverageConvergenceDivergence(macd, length);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace ObjectiveTA.Objects.Output
     /// <summary>
     /// Output model for a Vortex Indicator
     /// </summary>
-    public class VIModel
+    public class VortexIndicator
     {
         private double[] viUp;
         private double[] viDown;
@@ -17,7 +17,7 @@ namespace ObjectiveTA.Objects.Output
         /// </summary>
         /// <param name="viUp">Vi up.</param>
         /// <param name="viDown">Vi down.</param>
-        public VIModel(double[] viUp, double[] viDown)
+        public VortexIndicator(double[] viUp, double[] viDown)
         {
             this.VIUp = viUp;
             this.VIDown = viDown;

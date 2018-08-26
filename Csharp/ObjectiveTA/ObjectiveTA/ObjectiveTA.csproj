@@ -37,11 +37,12 @@
     <Compile Include="Trading\Trend.cs" />
     <Compile Include="Objects\Input\CandleStick.cs" />
     <Compile Include="Objects\Input\CandleStickCollection.cs" />
-    <Compile Include="Objects\Output\VIModel.cs" />
-    <Compile Include="Objects\Output\RSIModel.cs" />
-    <Compile Include="Indicators\MovingAverage.cs" />
-    <Compile Include="Objects\Output\MAModel.cs" />
+    <Compile Include="Objects\Output\VortexIndicator.cs" />
+    <Compile Include="Objects\Output\RelativeStrengthIndex.cs" />
+    <Compile Include="Indicators\MovingAverages.cs" />
+    <Compile Include="Objects\Output\MovingAverage.cs" />
     <Compile Include="Objects\Input\PriceSource.cs" />
+    <Compile Include="Objects\Output\MACD.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

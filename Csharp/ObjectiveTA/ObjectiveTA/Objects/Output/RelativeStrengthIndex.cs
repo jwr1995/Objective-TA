@@ -3,7 +3,7 @@ using ObjectiveTA.Trading;
 
 namespace ObjectiveTA.Objects.Output
 {
-    public class RSIModel
+    public class RelativeStrengthIndex
     {
         private double[] rsi;
 
@@ -11,7 +11,7 @@ namespace ObjectiveTA.Objects.Output
         /// 
         /// </summary>
         /// <param name="rsiInput"></param>
-        public RSIModel(double[] rsiInput)
+        public RelativeStrengthIndex(double[] rsiInput)
         {
             rsi = rsiInput;
         }
