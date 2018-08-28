@@ -18,7 +18,6 @@ CandleStickCollection::CandleStickCollection(CandleStick candleSticks[]) {
 	{
 		this->push_back(candleSticks[i]);
 	}
-
 }
 
 CandleStickCollection::~CandleStickCollection() {
