@@ -12,7 +12,6 @@
 #include "CandleStick.h";
 #include <iostream>;
 #include <vector>;
-#include <list>;
 
 using objectiveta_objects_input::CandleStick;
 using namespace std;
