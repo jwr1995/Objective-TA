@@ -6,9 +6,9 @@
  *   Copyright: Objective-TA, 2018
  */
 
-#include "../../../Objects/Input/CandleStick.h"
+#include "CandleStick.h"
 
-namespace objectiveta_objects_input {
+namespace objectiveTA::objects::input {
 
 CandleStick::CandleStick() {
     this->_open = 0.0;

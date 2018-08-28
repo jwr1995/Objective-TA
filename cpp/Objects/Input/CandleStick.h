@@ -9,7 +9,7 @@
 #ifndef OBJECTS_INPUT_CANDLESTICK_H_
 #define OBJECTS_INPUT_CANDLESTICK_H_
 
-namespace objectiveta_objects_input {
+namespace objectiveTA::objects::input {
 
 class CandleStick {
 

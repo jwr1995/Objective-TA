@@ -11,12 +11,12 @@
 
 #include <iostream>;
 #include <vector>;
-#include "../../../Objects/Input/CandleStick.h"
+#include "CandleStick.h"
 
-using objectiveta_objects_input::CandleStick;
+using objectiveTA::objects::input::CandleStick;
 using namespace std;
 
-namespace objectiveta_objects_input {
+namespace objectiveTA::objects::input {
 
 class CandleStickCollection: vector<CandleStick> {
 

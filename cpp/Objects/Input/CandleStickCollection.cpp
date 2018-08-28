@@ -5,9 +5,9 @@
  *      Author: will
  */
 
-#include "../../../Objects/Input/CandleStickCollection.h"
+#include "CandleStickCollection.h"
 
-namespace objectiveta_objects_input {
+namespace objectiveTA::objects::input {
 
 CandleStickCollection::CandleStickCollection() {
 	this->vector<CandleStick>();
