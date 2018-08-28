@@ -5,6 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Common\ArrayExtensions.cs" />
+    <Folder Include="Common\" />
+    <Folder Include="Indicators\" />
+    <Folder Include="Objects\" />
+    <Folder Include="Trading\" />
   </ItemGroup>
 </Project>
