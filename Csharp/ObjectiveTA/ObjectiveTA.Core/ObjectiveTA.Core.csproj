@@ -6,5 +6,8 @@
 
   <ItemGroup>
     <Folder Include="Common\" />
+    <Folder Include="Indicators\" />
+    <Folder Include="Objects\" />
+    <Folder Include="Trading\" />
   </ItemGroup>
 </Project>
