@@ -6,8 +6,8 @@
  *   Copyright: Objective-TA, 2018
  */
 
-#ifndef OBJECTIVE_TA_OBJECTS_INPUT_CANDLESTICK_H_
-#define OBJECTIVE_TA_OBJECTS_INPUT_CANDLESTICK_H_
+#ifndef OBJECTS_INPUT_CANDLESTICK_H_
+#define OBJECTS_INPUT_CANDLESTICK_H_
 
 namespace objectiveta_objects_input {
 
@@ -26,4 +26,4 @@ public:
 };
 
 } /* namespace objectiveta_objects_input */
-#endif /* OBJECTIVE_TA_OBJECTS_INPUT_CANDLESTICK_H_ */
+#endif /* OBJECTS_INPUT_CANDLESTICK_H_ */

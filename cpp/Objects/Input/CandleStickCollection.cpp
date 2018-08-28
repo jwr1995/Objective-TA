@@ -5,7 +5,7 @@
  *      Author: will
  */
 
-#include "CandleStickCollection.h"
+#include "../../../Objects/Input/CandleStickCollection.h"
 
 namespace objectiveta_objects_input {
 

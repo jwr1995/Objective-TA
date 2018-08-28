@@ -6,12 +6,12 @@
  */
 
 
-#ifndef OBJECTIVE_TA_OBJECTS_INPUT_CANDLESTICKCOLLECTION_H_
-#define OBJECTIVE_TA_OBJECTS_INPUT_CANDLESTICKCOLLECTION_H_
+#ifndef OBJECTS_INPUT_CANDLESTICKCOLLECTION_H_
+#define OBJECTS_INPUT_CANDLESTICKCOLLECTION_H_
 
-#include "CandleStick.h";
 #include <iostream>;
 #include <vector>;
+#include "../../../Objects/Input/CandleStick.h"
 
 using objectiveta_objects_input::CandleStick;
 using namespace std;
@@ -28,4 +28,4 @@ public:
 
 } /* namespace objectiveta_objects_input */
 
-#endif /* OBJECTIVE_TA_OBJECTS_INPUT_CANDLESTICKCOLLECTION_H_ */
+#endif /* OBJECTS_INPUT_CANDLESTICKCOLLECTION_H_ */

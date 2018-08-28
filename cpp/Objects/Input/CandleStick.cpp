@@ -6,7 +6,7 @@
  *   Copyright: Objective-TA, 2018
  */
 
-#include "CandleStick.h"
+#include "../../../Objects/Input/CandleStick.h"
 
 namespace objectiveta_objects_input {
 
