@@ -25,7 +25,6 @@ class PriceSource : public PriceSourceEnum {
 public:
 	vector<double> GetArrayFromCandleSticks(CandleStick cs);
 };
-
 } /* namespace objectiveTA */
 
 #endif /* OBJECTS_INPUT_PRICESOURCE_H_ */
