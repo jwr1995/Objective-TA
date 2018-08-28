@@ -5,6 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Common\ArrayExtensions.cs" />
+    <Folder Include="Common\" />
   </ItemGroup>
 </Project>
