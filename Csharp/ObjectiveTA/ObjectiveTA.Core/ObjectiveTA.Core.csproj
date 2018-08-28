@@ -9,5 +9,7 @@
     <Folder Include="Indicators\" />
     <Folder Include="Objects\" />
     <Folder Include="Trading\" />
+    <Folder Include="Objects\Input\" />
+    <Folder Include="Objects\Output\" />
   </ItemGroup>
 </Project>
