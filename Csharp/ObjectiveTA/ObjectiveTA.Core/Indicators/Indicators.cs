@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using ObjectiveTA.Objects.Input;
-using ObjectiveTA.Objects.Output;
+using ObjectiveTA.Core.Objects.Input;
+using ObjectiveTA.Core.Objects.Output;
+using ObjectiveTA.Core.Common;
 
-namespace ObjectiveTA.Indicators
+namespace ObjectiveTA.Core.Indicators
 {
     /// <summary>
     /// Indicators.
