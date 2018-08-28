@@ -8,11 +8,13 @@
 
 #include "CandleStick.h"
 
+namespace objectiveta_objects_input {
+
 CandleStick::CandleStick() {
-	this->_open = 0.0;
-	this->_high = 0;
-	this->_low = 0;
-	this->_close = 0;
+    this->_open = 0.0;
+	this->_high = 0.0;
+	this->_low = 0.0;
+	this->_close = 0.0;
 }
 
 CandleStick::CandleStick(double open, double high, double low, double close) {
@@ -22,6 +24,23 @@ CandleStick::CandleStick(double open, double high, double low, double close) {
 	this->_close = close;
 }
 
+double CandleStick::getOpen() {
+	return _open;
+}
+
+double CandleStick::getHigh() {
+	return _high;
+}
+
+double CandleStick::getLow() {
+	return _low;
+}
+
+double CandleStick::getClose() {
+	return _close;
+}
+
+
 CandleStick::~CandleStick() {
 	delete _open;
 	delete _high;
@@ -29,4 +48,7 @@ CandleStick::~CandleStick() {
 	delete _close;
 	delete this;
 }
+
+}
+
 
