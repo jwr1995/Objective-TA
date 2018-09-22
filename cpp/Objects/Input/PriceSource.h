@@ -10,21 +10,23 @@
 
 #include <iostream>;
 #include <vector>;
-#include "CandleStick.h";
+#include "CandleStickCollection.h";
 
 using objectiveTA::objects::input::CandleStick;
 using namespace std;
 
 namespace objectiveTA::objects::input {
 
-enum class PriceSourceEnum {
-	open, high, low, close
+class PriceSource {
+private: enum priceSourceEnum {_open, _high, _low, _close};
+public:
+	PriceSource Open();
+	PriceSource High();
+	PriceSource Low();
+	PriceSource Close();
+	vector<double> GetArrayFromCandleStickCollection(CandleStickCollection cs);
 };
 
-class PriceSource : public PriceSourceEnum {
-public:
-	vector<double> GetArrayFromCandleSticks(CandleStick cs);
-};
 } /* namespace objectiveTA */
 
 #endif /* OBJECTS_INPUT_PRICESOURCE_H_ */
