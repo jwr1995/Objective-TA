@@ -1,7 +1,9 @@
 # Objective-TA                                                                       
 Objective-TA's aim is to be a feature-rich technical analysis library to cater towards OOP languages.
 
-The idea for this project came from TA-lib which is a useful library, however because of the way it was created, documentation across languages is poor and the extensibility of the library is very very limited. Objective-TA aims to take a similar approach to TA-lib but adding in easy to use features in TA objects so that signals, trends and other information can be easily linguistically conveyed within an OOP paradigm and so that library objects can be easily and meaningfully extended.
+The idea for this project is to serve as a modern technical analysis software library that is well documented & supported across many object-oriented programming languages. Objective-TA is similar to TA-lib but has added easy to use features such as TA objects that can be used to convey signals, trends and other information.
 
-Objective-TA supports C#, C++ & Java.
+Objective-TA currently supports C#, C++ & Java with more to come in future.
+
+## Current version: N/A (see dev branch for latest code updates)
 
