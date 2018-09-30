@@ -5,5 +5,5 @@ The idea for this project is to serve as a modern technical analysis software li
 
 Objective-TA currently supports C#, C++ & Java with more to come in future.
 
-### Current version: N/A (see dev branch for latest code updates)
+#### Current version: N/A (see dev branch for latest code updates)
 
