@@ -44,7 +44,6 @@
     <Compile Include="Objects\Input\PriceSource.cs" />
     <Compile Include="Objects\Output\MovingAverageConvergenceDivergence.cs" />
     <Compile Include="Common\ArrayExtensions.cs" />
-    <Compile Include="Objects\Output\BollingerBands.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\" />
