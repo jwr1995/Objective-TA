@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using ObjectiveTA.Common;
 using ObjectiveTA.Objects.Input;
 using ObjectiveTA.Objects.Output;
 
@@ -41,8 +42,7 @@ namespace ObjectiveTA.Indicators
 
             for (int i = period; i < count; i++)
             {
-                rs[i] = MovingAverage.SMMA(up, period, i-period, period).MovingAverage[i] 
-                                     / MovingAverage.SMMA(down, period,i-period,period).MovingAverage[i];
+                rs[i] = MovingAverages.SMMA(up, period, i-period, period).MA[i] / MovingAverages.SMMA(down, period,i-period,period).MA[i];
                 rsi[i] = 100 - 1 / (1 + rs[i]);
             }
 
@@ -106,8 +106,13 @@ namespace ObjectiveTA.Indicators
         {
             MovingAverage fastMA = MovingAverages.EMA(candleSticks, fast, priceSource);
             MovingAverage slowMA = MovingAverages.EMA(candleSticks, slow, priceSource);
-            double[] macd = SubtractArray(fastMA.MA, slowMA.MA);
+            double[] macd = fastMA.MA.SubtractArray(slowMA.MA);
             return new MovingAverageConvergenceDivergence(macd, length);
+        }
+
+        public static BollingerBands BollingerBands(CandleStickCollection candleSticks)
+        {
+            return null;
         }
     }
 }
