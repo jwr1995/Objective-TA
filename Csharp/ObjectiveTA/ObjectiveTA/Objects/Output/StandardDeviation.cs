@@ -19,9 +19,9 @@ namespace ObjectiveTA.Objects.Output
             {
                 sum = sum + (x[i] - xAverage[i]).Squared();
             }
-            sd = Math.Sqrt(sum/n);
+            value = Math.Sqrt(sum/n);
         }
 
-        public double SD { get => sd; set => sd = value; }
+        public double Value { get => sd; set => sd = value; }
     }
 }
