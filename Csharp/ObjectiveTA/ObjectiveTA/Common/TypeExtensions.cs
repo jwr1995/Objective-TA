@@ -3,7 +3,6 @@ namespace ObjectiveTA.Common
 {
     public static class ArrayExtensions
     {
-        // testststststst
         public static double[] SubtractArray(this double[] first, double[] second)
         {
             try 
@@ -19,6 +18,14 @@ namespace ObjectiveTA.Common
                 throw e;
             }
 
+        }
+    }
+
+    public static class DoubleExtensions
+    {
+        public static double Squared(this double db)
+        {
+            return db * db;
         }
     }
 }

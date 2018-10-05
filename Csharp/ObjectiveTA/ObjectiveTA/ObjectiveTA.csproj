@@ -43,7 +43,7 @@
     <Compile Include="Objects\Output\MovingAverage.cs" />
     <Compile Include="Objects\Input\PriceSource.cs" />
     <Compile Include="Objects\Output\MovingAverageConvergenceDivergence.cs" />
-    <Compile Include="Common\ArrayExtensions.cs" />
+    <Compile Include="Common\TypeExtensions.cs" />
     <Compile Include="Objects\Output\BollingerBands.cs" />
     <Compile Include="Objects\Output\StandardDeviation.cs" />
   </ItemGroup>

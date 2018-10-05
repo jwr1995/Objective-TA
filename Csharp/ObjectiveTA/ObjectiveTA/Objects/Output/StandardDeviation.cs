@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ObjectiveTA.Common;
 
 namespace ObjectiveTA.Objects.Output
 {
@@ -8,15 +9,19 @@ namespace ObjectiveTA.Objects.Output
         private double[] x;
         private double[] xAverage;
         private double sd;
+
         public StandardDeviation(double[] x, double[] xAverage)
         {
-            double y = 0;
-            int count = x.Length;
-            for (int i = 0; i < count; i++)
-            {
+            int n = x.Length;
+            double sum = 0;
 
+            for (int i = 0; i < n; i++)
+            {
+                sum = sum + (x[i] - xAverage[i]).Squared();
             }
-            sd = Math.Sqrt(y);
+            sd = Math.Sqrt(sum/n);
         }
+
+        public double SD { get => sd; set => sd = value; }
     }
 }
