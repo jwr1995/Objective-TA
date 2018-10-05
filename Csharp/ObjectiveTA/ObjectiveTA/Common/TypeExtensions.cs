@@ -17,7 +17,30 @@ namespace ObjectiveTA.Common
             {
                 throw e;
             }
+        }
 
+        public static double Sum(this double[] vals)
+        {
+            double sum = 0;
+
+            for (int i = 0; i < vals.Length; i++)
+            {
+                sum = sum + vals[i];
+            }
+
+            return sum;
+        }
+
+        public static double[] GetSegment(this double[] array, int start, int finish)
+        {
+            int count = finish - start;
+            double[] output = new double[count];
+
+            for (int i = 0; i < count; i++)
+            {
+                output[i] = array[i + start];
+            }
+            return array;
         }
     }
 
@@ -28,4 +51,5 @@ namespace ObjectiveTA.Common
             return db * db;
         }
     }
+
 }

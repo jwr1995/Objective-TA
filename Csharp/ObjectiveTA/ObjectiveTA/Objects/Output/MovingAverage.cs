@@ -70,6 +70,24 @@ namespace ObjectiveTA.Objects.Output
                 return false;
             }
         }
+
+        public double[] GetSegment(int start, int finish)
+        {
+            if(finish > ma.Length || start < 0 || start > ma.Length)
+            {
+                IndexOutOfRangeException exception = new IndexOutOfRangeException();
+                throw (exception);
+            }
+
+            double[] output = new double[finish - start];
+
+            for (int i = 0; i < output.Length;i++)
+            {
+                output[i] = ma[start + i];
+            }
+
+            return output;
+        }
     }
 
     /// <summary>
