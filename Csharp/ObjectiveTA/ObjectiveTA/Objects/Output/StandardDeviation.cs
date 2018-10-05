@@ -10,6 +10,7 @@ namespace ObjectiveTA.Objects.Output
         private double sd;
         public StandardDeviation(double[] x, double[] xAverage)
         {
+            double y = 0;
             int count = x.Length;
             for (int i = 0; i < count; i++)
             {
