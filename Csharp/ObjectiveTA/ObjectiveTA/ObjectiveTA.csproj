@@ -32,7 +32,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Indicators\Indicators.cs" />
-    <Compile Include="Indicators\MathUtils.cs" />
+    <Compile Include="Indicators\Indicators_partial.cs" />
     <Compile Include="Trading\Signal.cs" />
     <Compile Include="Trading\Trend.cs" />
     <Compile Include="Objects\Input\CandleStick.cs" />
@@ -45,6 +45,7 @@
     <Compile Include="Objects\Output\MovingAverageConvergenceDivergence.cs" />
     <Compile Include="Common\ArrayExtensions.cs" />
     <Compile Include="Objects\Output\BollingerBands.cs" />
+    <Compile Include="Objects\Output\StandardDeviation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\" />
