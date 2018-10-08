@@ -7,7 +7,7 @@ namespace ObjectiveTA.Objects.Output
 {
     public class BollingerBands
     {
-        double[] upperBand, middleBand, lowerBand;
+        private double[] upperBand, middleBand, lowerBand;
 
         public BollingerBands(CandleStickCollection candleSticks, int period = 20, 
                               double multiplier = 2, PriceSource priceSource = PriceSource.Close)

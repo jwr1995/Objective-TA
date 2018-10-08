@@ -1,4 +1,5 @@
 ﻿using System;
+using ObjectiveTA.Indicators;
 using ObjectiveTA.Objects.Input;
 using ObjectiveTA.Trading;
 
@@ -23,6 +24,12 @@ namespace ObjectiveTA.Objects.Output
         /// </summary>
         /// <value>The ma.</value>
         public double[] MA { get => ma; set => ma = value; }
+
+        /// <summary>
+        /// Gets the count.
+        /// </summary>
+        /// <value>The count.</value>
+        public int Count { get => ma.Length; }
 
         /// <summary>
         /// Gets the type of the ma.
@@ -87,6 +94,30 @@ namespace ObjectiveTA.Objects.Output
             }
 
             return output;
+        }
+
+
+    }
+
+    public static class MovingAverageExtensions
+    {
+        public static MovingAverage GetMovingAverageFromArray(this MAType type, double[] array, int period = 14)
+        {
+            switch (type)
+            {
+                case MAType.SMA:
+                    return MovingAverages.SMA(array, period);
+                case MAType.CMA:
+                    return null;
+                case MAType.EMA:
+                    return null;
+                case MAType.SMMA:
+                    return null;
+                case MAType.WMA:
+                    return null;
+                default:
+                    return null;
+            }
         }
     }
 

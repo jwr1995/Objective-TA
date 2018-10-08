@@ -6,22 +6,30 @@ namespace ObjectiveTA.Objects.Output
 {
     public class StandardDeviation
     {
-        private double[] x;
-        private double[] xAverage;
         private double sd;
 
-        public StandardDeviation(double[] x, double[] xAverage)
+        public StandardDeviation(double[] x, double[] y)
         {
-            int n = x.Length;
-            double sum = 0;
-
-            for (int i = 0; i < n; i++)
-            {
-                sum = sum + (x[i] - xAverage[i]).Squared();
-            }
-            value = Math.Sqrt(sum/n);
+            double sigsq = new Covariance(x, y).Value;
+            sd = Math.Sqrt(sigsq);
         }
 
-        public double Value { get => sd; set => sd = value; }
+        public StandardDeviation(double[] x, MAType type = MAType.SMA, int period = 14)
+        {
+            double var = new Variance(x: x, period: period, type: type).Value;
+            sd = Math.Sqrt(var);
+        }
+
+        public StandardDeviation(Variance variance)
+        {
+            sd = Math.Sqrt(variance.Value);
+        }
+
+        public StandardDeviation(Covariance covariance)
+        {
+            sd = Math.Sqrt(covariance.Value);
+        }
+
+        public double Value { get => sd; }
     }
 }

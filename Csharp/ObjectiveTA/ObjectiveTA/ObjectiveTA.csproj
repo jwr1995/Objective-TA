@@ -46,6 +46,9 @@
     <Compile Include="Common\TypeExtensions.cs" />
     <Compile Include="Objects\Output\BollingerBands.cs" />
     <Compile Include="Objects\Output\StandardDeviation.cs" />
+    <Compile Include="Objects\Output\Variance.cs" />
+    <Compile Include="Objects\Output\Covariance.cs" />
+    <Compile Include="Objects\Output\Average.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\" />
