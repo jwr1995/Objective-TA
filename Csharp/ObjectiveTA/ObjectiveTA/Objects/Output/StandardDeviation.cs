@@ -20,6 +20,12 @@ namespace ObjectiveTA.Objects.Output
             sd = Math.Sqrt(var);
         }
 
+        public StandardDeviation(double[] x)
+        {
+            double var = new Variance(x).Value;
+            sd = Math.Sqrt(var);
+        }
+
         public StandardDeviation(Variance variance)
         {
             sd = Math.Sqrt(variance.Value);

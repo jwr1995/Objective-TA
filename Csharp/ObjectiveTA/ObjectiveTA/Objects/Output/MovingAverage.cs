@@ -108,13 +108,13 @@ namespace ObjectiveTA.Objects.Output
                 case MAType.SMA:
                     return MovingAverages.SMA(array, period);
                 case MAType.CMA:
-                    return null;
+                    return MovingAverages.CMA(array);
                 case MAType.EMA:
-                    return null;
+                    return MovingAverages.EMA(array, period);
                 case MAType.SMMA:
-                    return null;
+                    return MovingAverages.SMMA(array, period);
                 case MAType.WMA:
-                    return null;
+                    return MovingAverages.WMA(array, period);
                 default:
                     return null;
             }
