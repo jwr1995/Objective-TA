@@ -38,6 +38,20 @@ namespace ObjectiveTA.Objects.Output
             this.value = sum / n;
         }
 
+        public Variance(double[] x)
+        {
+            double avg = x.Average();
+            double sum = 0;
+            int n = x.Length;
+
+            for (int i = 0; i < n; i++)
+            {
+                sum = sum + (x[i] - avg).Squared();
+            }
+
+            this.value = sum / n;
+        }
+
         public double Value { get => this.value; }
     }
 }

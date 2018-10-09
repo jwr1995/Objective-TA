@@ -22,4 +22,6 @@ namespace ObjectiveTA.Objects.Output
             value = 0;
         }
     }
+
+    public enum AverageType { Mean, MovingAverage }
 }

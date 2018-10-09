@@ -101,8 +101,9 @@ namespace ObjectiveTA.Indicators
             }
         }
 
-        public static MovingAverageConvergenceDivergence MACD(CandleStickCollection candleSticks, int fast = 12, int slow = 26, int length = 9,
-                                     PriceSource priceSource = PriceSource.Close)
+        public static MovingAverageConvergenceDivergence MACD(CandleStickCollection candleSticks, int fast = 12, 
+                                                              int slow = 26, int length = 9, 
+                                                              PriceSource priceSource = PriceSource.Close)
         {
             MovingAverage fastMA = MovingAverages.EMA(candleSticks, fast, priceSource);
             MovingAverage slowMA = MovingAverages.EMA(candleSticks, slow, priceSource);
@@ -110,9 +111,11 @@ namespace ObjectiveTA.Indicators
             return new MovingAverageConvergenceDivergence(macd, length);
         }
 
-        public static BollingerBands BollingerBands(CandleStickCollection candleSticks)
+        public static BollingerBands BollingerBands(CandleStickCollection candleSticks, int period = 14, 
+                                                    double multiplier = 2, PriceSource priceSource = PriceSource.Close)
         {
-            return null;
+            BollingerBands bollingerBands = new BollingerBands(candleSticks, period, multiplier, priceSource);
+            return bollingerBands;
         }
     }
 }
