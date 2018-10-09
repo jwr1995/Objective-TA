@@ -94,17 +94,17 @@ namespace ObjectiveTA.Indicators
         /// <param name="period">Period.</param>
         public static MovingAverage EMA(double[] inputArray, int period = 14)
         {
-            int count = prices.Length;
+            int count = inputArray.Length;
             double[] ema = new double[count];
 
             double w = 1 / period;
 
             // Set intial value to first price value
-            ema[0] = prices[0];
+            ema[0] = inputArray[0];
 
             for (int i = 1; i < count; i++)
             {
-                ema[i] = w * prices[i] + (1.0 - w) * ema[i - 1];
+                ema[i] = w * inputArray[i] + (1.0 - w) * ema[i - 1];
             }
 
             return new MovingAverage(ema, MAType.EMA);
