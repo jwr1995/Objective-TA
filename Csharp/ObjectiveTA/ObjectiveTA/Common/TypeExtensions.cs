@@ -1,4 +1,6 @@
 ﻿using System;
+using ObjectiveTA.Objects.Output;
+
 namespace ObjectiveTA.Common
 {
     public static class ArrayExtensions
@@ -41,6 +43,21 @@ namespace ObjectiveTA.Common
                 output[i] = array[i + start];
             }
             return array;
+        }
+
+        public static double Average(this double[] array)
+        {
+            return array.Sum() / array.Length;
+        }
+
+        public static double Variance(this double[] array)
+        {
+            return new Variance(array).Value;
+        }
+
+        public static double StandardDeviation(this double[] array)
+        {
+            return new StandardDeviation(array).Value;
         }
     }
 
